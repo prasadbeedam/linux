@@ -1,0 +1,10 @@
+
+
+        id ammar
+    2  useradd -u 1293 ammar
+    3  id ammar
+    4  cat /etc/passwd |grep ammar
+    5  usermod -d /var/www/ammar -m ammar
+    6  cat /etc/passwd |grep john
+    7  cat /etc/passwd |grep ammar
+cat /etc/passwd |grep john   --- verify that user john was added
