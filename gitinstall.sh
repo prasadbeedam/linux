@@ -1,19 +1,17 @@
-!#/bin/bash
+#!/bin/bash
 
-echo "script to installing git"
-echo "installation started"
+echo "Script to install Git"
+echo "Installation started"
 
-if [ "$(uname)" == "linux" ]; then
-    
-    echo "this is the linux box installing git"
+# Detect the OS
+if [ "$(uname)" == "Linux" ]; then
+    echo "This is a Linux box. Installing Git..."
     yum install git -y
-elif ["$(uname)" == "MAC" ]; then
 
-    echo "this is mac os"
-    brew install git 
+elif [ "$(uname)" == "Darwin" ]; then
+    echo "This is macOS. Installing Git..."
+    brew install git
+
 else
-    echo "not installing"
-fi     
-
-
-
+    echo "Unsupported OS. Not installing Git."
+fi
