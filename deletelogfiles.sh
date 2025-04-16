@@ -8,4 +8,3 @@ if [ $? -gt 0 ]; then
 else
    echo "having issue in filesystem or not able to find the files"
 fi     
-cat $path 
