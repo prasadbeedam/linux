@@ -7,4 +7,5 @@ if [ $? -gt 0 ]; then
    echo "files are deleted succssfully"
 else
    echo "having issue in filesystem or not able to find the files"
-fi      
+fi     
+cat $path 
