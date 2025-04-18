@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Downloading and installing Prometheus..."
+
+# Set the version you want
+PROM_VERSION="2.42.0"
+PROM_FILE="prometheus-${PROM_VERSION}.linux-amd64.tar.gz"
+DOWNLOAD_URL="https://github.com/prometheus/prometheus/releases/download/v${PROM_VERSION}/${PROM_FILE}"
+
+# Check if file already exists
+if [ -e "/home/ec2-user/${PROM_FILE}" ]; then
+    echo "The file already exists. Skipping download..."
+else
+    echo "File not found. Downloading Prometheus ${PROM_VERSION}..."
+    wget -P /home/ec2-user "$DOWNLOAD_URL"
+    echo "Download completed."
+fi
+
+# Extract the archive
+cd /home/ec2-user || exit
+tar -zxvf "$PROM_FILE"
+
+echo "Prometheus ${PROM_VERSION} extracted successfully."
