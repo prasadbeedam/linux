@@ -1,11 +1,12 @@
 #!/bin/bash
 
-echo "===status of docker services===="
-status="`systemctl status docker|awk 'NR==3 {print}'|cut -d ':' -f 2|cut -d '(' -f 1`"
-echo $status
-if [ $status = "active"]; then
-  echo "services running fine"
+echo "=== Status of Docker service ==="
+status=$(systemctl is-active docker)
+echo "Docker status: $status"
+
+if [ "$status" == "active" ]; then
+  echo "Docker is running smoothly ✅"
 else
-  echo "services not running"
+  echo "Docker is not running ❌ – restarting..."
   sudo systemctl start docker
-fi 
+fi
